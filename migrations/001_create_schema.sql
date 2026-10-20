@@ -3,6 +3,8 @@
 -- Proyek IPSI: KRS Mahasiswa
 -- PostgreSQL
 -- Jalankan pada database kosong dengan schema public.
+-- migrate:up
+-- Membuat sembilan tabel database KRS Mahasiswa
 
 CREATE TABLE prodi (
     kode_prodi VARCHAR(10) PRIMARY KEY,
@@ -111,3 +113,14 @@ CREATE TABLE krs_detail (
                             'AB', 'BC', 'CD', 'DE')
         )
 );
+
+-- migrate:down
+DROP TABLE IF EXISTS krs_detail;
+DROP TABLE IF EXISTS krs;
+DROP TABLE IF EXISTS kelas;
+DROP TABLE IF EXISTS mahasiswa;
+DROP TABLE IF EXISTS mata_kuliah;
+DROP TABLE IF EXISTS periode;
+DROP TABLE IF EXISTS dosen;
+DROP TABLE IF EXISTS aturan_akademik;
+DROP TABLE IF EXISTS prodi;
